@@ -118,13 +118,16 @@ $(document).ready(function(){
               if (total <= 0 ) {
                 total = 0;
               }
-              // return total;
+
+              if (total >= 11) {
+                total = 11;
+              }
+              console.log(total);
             }
             var scaleTotal = $('.scale div:nth-of-type(' + total + ')');
             $('.scale div').not(scaleTotal).removeClass('index');
-            scaleTotal.addClass('index');
 
-            // $('.scale div:nth-of-type(' + total + ')').addClass('index');
+            scaleTotal.addClass('index');
 
             this.status = CAT_LADY_SCALE[total];
 
@@ -254,7 +257,7 @@ $(document).ready(function(){
       }
     }
 
-    addScale(10);
+    addScale(11);
 
 });
 
