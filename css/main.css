@@ -109,6 +109,7 @@ h1, h2, h3, h4, h5 {
 .status-display {
     padding: 2rem 10%;
     margin: 0 auto;
+    height:500px;
     background-color: #F2C548;
 }
 
