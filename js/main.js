@@ -112,6 +112,7 @@ $(document).ready(function(){
             var total = 5
             for(var i = 0; i < this.behaviors.length; i++) {
             total +=  this.behaviors[i].pointValue;
+
             // return total;
             // this.status = CAT_LADY_SCALE[total];
               if (total <= 0 ) {
@@ -119,9 +120,14 @@ $(document).ready(function(){
               }
               // return total;
             }
+            var scaleTotal = $('.scale div:nth-of-type(' + total + ')');
+            $('.scale div').not(scaleTotal).removeClass('index');
+            scaleTotal.addClass('index');
 
+            // $('.scale div:nth-of-type(' + total + ')').addClass('index');
 
             this.status = CAT_LADY_SCALE[total];
+
             console.log(this.status);
             //--------------------------------------------------------------------------------------
             // TODO: CHALLENGE 9
@@ -240,6 +246,16 @@ $(document).ready(function(){
     fillBehaviorDropDown(); // fill drop down
     displayStatus(catLady.status); // display initial cat lady status
 
+
+  function addScale(number) {
+      $('.status-section').append('<div class="scale"></div>');
+      for(var i = 0; i < number; i++) {
+        $('.scale').append('<div><p>'+i+'</p></div>');
+      }
+    }
+
+    addScale(10);
+
 });
 
 // more things to do:
@@ -247,3 +263,7 @@ $(document).ready(function(){
 // - use imageProp function
 // - adjust 'total' amount to be 0 if goes into negatives
 // -
+
+
+// Get total #;
+// Add .index clas to that number in the array of scale divs. (DO i need to first make it an array?)
